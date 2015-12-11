@@ -1,15 +1,15 @@
 
 package Eraser;
 
-public class EraserThread extends Thread{
+public class Eraser implements Runnable{
 	private boolean active;	
 	private String mask;	
 
-	public EraserThread(){
+	public Eraser(){
 		this('*');
 	}
 
-	public EraserThread(char maskChar){
+	public Eraser(char maskChar){
 		active = true;
 		mask = "\010" + maskChar;
 	}

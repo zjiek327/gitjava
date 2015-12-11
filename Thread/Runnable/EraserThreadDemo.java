@@ -1,6 +1,6 @@
 
 
-import Eraser.EraserThread;
+import Eraser.Eraser;
 import java.util.Scanner;
 
 public class EraserThreadDemo{
@@ -12,11 +12,13 @@ public class EraserThreadDemo{
 			String name = scanner.next();
 
 			System.out.print("Please input password:");
-			// start EraserThread
-			EraserThread eraserT = new EraserThread();
+
+			Eraser eraser = new Eraser('#');
+			// start Thread
+			Thread eraserT = new Thread(eraser);
 			eraserT.start();
 			String password = scanner.next();
-			eraserT.setActive(false);
+			eraser.setActive(false);
 
 			if("test".equals(name) && "test".equals(password)){
 				System.out.println("Welcome");
