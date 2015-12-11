@@ -1,0 +1,72 @@
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+//import javax.swing.KeyStroke;
+
+
+public class JNotePadUI extends JFrame{
+	public JNotePadUI(){
+		super("New file");
+
+		setUpUIComponent();
+		setUpEventListener();
+		setVisible(true);
+	}	
+
+	private void setUpUIComponent(){
+		setSize(640, 480);
+
+	//菜单栏
+		JMenuBar menuBar = new JMenuBar();
+	//设置＇文件＇菜单
+		JMenu fileMenu = new JMenu("File");
+		JMenuItem menuOpen = new JMenuItem("Open");
+		JMenuItem menuSave = new JMenuItem("Save");
+		JMenuItem menuSaveAs = new JMenuItem("Save as");
+		JMenuItem menuClose = new JMenuItem("Close");
+		// add in file menu bar
+		fileMenu.add(menuOpen);
+		fileMenu.addSeparator(); // divide line
+		fileMenu.add(menuSave);
+		fileMenu.addSeparator(); // divide line
+		fileMenu.add(menuSaveAs);
+		fileMenu.addSeparator(); // divide line
+		fileMenu.add(menuClose);
+
+
+	//设置＇编辑＇菜单
+		JMenu editMenu = new JMenu("Edit");
+		JMenuItem menuCut = new JMenuItem("Cut");
+		JMenuItem menuCopy = new JMenuItem("Copy");
+		JMenuItem menuPaste = new JMenuItem("Paste");
+		// add in edit menu bar
+		editMenu.add(menuCut);
+		editMenu.addSeparator(); // divide line
+		editMenu.add(menuCopy);
+		editMenu.addSeparator(); // divide line
+		editMenu.add(menuPaste);
+
+	//设置＇关于＇菜单
+		JMenu aboutMenu = new JMenu("About");
+		JMenuItem menuAbout = new JMenuItem("JNotePad");
+		// add in about menu bar
+		aboutMenu.add(menuAbout);
+
+		// add in menu bar
+		menuBar.add(fileMenu);
+		menuBar.add(editMenu);
+		menuBar.add(aboutMenu);
+		// set menu bar
+		setJMenuBar(menuBar);
+	}
+
+	private void setUpEventListener(){
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public static void main(String[] args){
+		new JNotePadUI();
+	}
+}
